@@ -9,26 +9,7 @@ import { NavbarLinks } from "../../data/navbar-links"
 import { apiConnector } from "../../services/apiConnector"
 import { courseEndpoints } from "../../services/apis"
 import { ACCOUNT_TYPE } from "../../utils/constants"
-import ProfileDropdown from "../core/Auth/ProfileDropdown"
-
-// const subLinks = [
-//   {
-//     title: "Python",
-//     link: "/catalog/python",
-//   },
-//   {
-//     title: "javascript",
-//     link: "/catalog/javascript",
-//   },
-//   {
-//     title: "web-development",
-//     link: "/catalog/web-development",
-//   },
-//   {
-//     title: "Android Development",
-//     link: "/catalog/Android Development",
-//   },
-// ];
+import ProfileDropdown from "../core/Auth/ProfileDropdown";
 
 function Navbar() {
   const { token } = useSelector((state) => state.auth)
@@ -37,6 +18,8 @@ function Navbar() {
   const location = useLocation()
 
   const [subLinks, setSubLinks] = useState([])
+  const [hover, setHover] = useState(false)
+
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
